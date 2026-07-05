@@ -1,17 +1,16 @@
-import React,{useId} from 'react'
+import {useId} from 'react'
 
-interface InputBox {
-    label:string;
-    amount:number;
-    onAmountChange:Function;
-    onCurrencyChange:Function;
-    currencyOptions:string[];
-    selectCurrency:string;
-    amountDisable:boolean;
-    currencyDisable:boolean;
-    className:string;
+interface InputBoxProps {
+    label: string;
+    amount: number;
+    onAmountChange?: (value: number) => void;
+    onCurrencyChange?: (value: string) => void;
+    currencyOptions?: string[];
+    selectCurrency?: string;
+    amountDisable?: boolean;
+    currencyDisable?: boolean;
+    className?: string;
 }
-
 
 function InputBox({
     label,
@@ -23,7 +22,7 @@ function InputBox({
     amountDisable = false,
     currencyDisable = false,
     className = "",
-}:InputBox) {
+}: InputBoxProps) {
    
     const amountInputId = useId()
     return (
