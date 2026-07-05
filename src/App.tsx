@@ -23,11 +23,18 @@ function App() {
         setConvertedAmount(amount * currencyInfo[to])
     }
 
+    function handleClear() {
+        setFrom(from)
+        setTo(to)
+        setConvertedAmount(0)
+        setAmount(0)
+    }
+
     return (
         <div
             className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
             style={{
-                backgroundImage: `url('https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
+                backgroundImage: `url('https://images.pexels.com/photos/7114268/pexels-photo-7114268.jpeg')`,
             }}
         >
             <div className="w-full">
@@ -68,9 +75,25 @@ function App() {
                                 amountDisable
                             />
                         </div>
-                        <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
-                            Convert {from.toUpperCase()} to {to.toUpperCase()}
-                        </button>
+                        <div className="flex gap-3">
+                            <button type="submit" className="flex-1 bg-blue-600 text-white px-4 py-3 rounded-lg">
+                                Convert {from.toUpperCase()} to {to.toUpperCase()}
+                            </button>
+                            <button
+                                type="button"
+                                onClick={handleClear}
+                                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                                    <path d="M3 6h18" />
+                                    <path d="M8 6V4h8v2" />
+                                    <path d="M6 6l1 14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-14" />
+                                    <path d="M10 11v6" />
+                                    <path d="M14 11v6" />
+                                </svg>
+                                Clear
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
